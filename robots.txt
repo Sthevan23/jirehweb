@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jirehweb.com.br/sitemap.xml
