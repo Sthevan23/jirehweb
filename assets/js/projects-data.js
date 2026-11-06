@@ -45,7 +45,7 @@ window.JW_PROJECTS = [
   {
     name: "Loja virtual",
     category: "Loja virtual",
-    description: "Vitrine de produtos com carrinho e finalização do pedido integrada ao WhatsApp.",
+    description: "Vitrine de produtos com carrinho, cálculo de frete e pagamento online ou finalização pelo WhatsApp.",
     url: "",
     image: "",
     colors: ["#a855f7", "#ec4899"],
