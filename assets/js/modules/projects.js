@@ -42,11 +42,21 @@
   }
 
   function screen(project, isPhone) {
-    var img = safeUrl(project.image || "");
+    // No celular, só usa captura própria (a do computador ficaria distorcida)
+    var img = safeUrl((isPhone ? project.imageMobile : project.image) || "");
     if (img) {
-      return "<img src='" + esc(img) + "' alt='' loading='lazy' decoding='async' style='width:100%;height:100%;object-fit:cover;object-position:top'>";
+      var size = isPhone ? "width='270' height='570'" : "width='960' height='600'";
+      return "<img class='shot' src='" + esc(img) + "' alt='' " + size + " loading='lazy' decoding='async'>";
     }
     return illustration(project.layout || "institucional", isPhone);
+  }
+
+  function badge(p) {
+    if (p.concept || p.demo) {
+      return "<span class='badge-status is-concept' title='Marca fictícia criada para demonstração'>Projeto conceito</span>";
+    }
+    if (p.url) return "<span class='badge-status is-live'>Site no ar</span>";
+    return "";
   }
 
   function card(p) {
@@ -67,7 +77,7 @@
         "<div class='project-body'>" +
           "<div class='project-meta'>" +
             "<span class='tag'>" + esc(p.category) + "</span>" +
-            (p.demo ? "<span class='badge-demo' title='Projeto ilustrativo, não é um cliente real'>Exemplo</span>" : "") +
+            badge(p) +
           "</div>" +
           "<h3>" + esc(p.name) + "</h3>" +
           "<p>" + esc(p.description) + "</p>" +
