@@ -16,5 +16,5 @@ window.JW_CONFIG = {
   instagram: "sthevandev",
 
   /** E-mail comercial. Ex.: "contato@seudominio.com.br" */
-  email: ""
+  email: "sthevandev23@gmail.com"
 };
