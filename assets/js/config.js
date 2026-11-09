@@ -13,7 +13,7 @@ window.JW_CONFIG = {
   whatsappMessage: "Olá, JirehWeb! Gostaria de solicitar um orçamento para o meu projeto.",
 
   /** Usuário do Instagram, sem @. Ex.: "jirehweb" */
-  instagram: "sthevandev",
+  instagram: "sthevan_dev",
 
   /** E-mail comercial. Ex.: "contato@seudominio.com.br" */
   email: "sthevandev23@gmail.com"
