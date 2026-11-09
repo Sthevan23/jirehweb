@@ -41,6 +41,16 @@
 
   <link rel="stylesheet" href="assets/css/styles.css">
 
+  <!-- Esconde o topo até a animação de entrada começar (evita a "piscada").
+       Garantia: mostra tudo em até 2,5 s, mesmo se a animação não carregar. -->
+  <script>
+    (function (root) {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      root.classList.add("intro-pending");
+      setTimeout(function () { root.classList.remove("intro-pending"); }, 2500);
+    })(document.documentElement);
+  </script>
+
   <!-- Dados estruturados -->
   <script type="application/ld+json">
   {

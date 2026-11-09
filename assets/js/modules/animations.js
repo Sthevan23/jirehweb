@@ -8,6 +8,10 @@
 
   var EASE = "power3.out";
 
+  function revealHero() {
+    document.documentElement.classList.remove("intro-pending");
+  }
+
   /** Entrada do hero */
   function heroIntro() {
     var tl = gsap.timeline({ defaults: { ease: "power4.out" } });
@@ -21,6 +25,9 @@
       .from(".preview-strip span", { scaleX: 0, transformOrigin: "left", duration: 0.8, stagger: 0.1 }, "-=0.3")
       .from(".float-card", { scale: 0.6, opacity: 0, duration: 0.8, stagger: 0.15, ease: "back.out(1.7)", clearProps: "transform" }, "-=0.9")
       .from(".scroll-cue", { opacity: 0, y: -10, duration: 0.6 }, "-=0.3");
+
+    // Estados iniciais já aplicados pelo GSAP: pode revelar o topo sem "piscada"
+    revealHero();
 
     // Leve parallax do conteúdo do hero ao rolar
     gsap.to(".hero-copy", {
@@ -156,6 +163,7 @@
   JW.initAnimations = function () {
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!window.gsap || !window.ScrollTrigger || reduceMotion) {
+      revealHero();
       JW.showStatic();
       return;
     }
